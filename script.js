@@ -5,7 +5,7 @@ const outputDisplay = document.getElementById("output_display");
 let string = '';
 let setDisplay = '';
 let index = 0;
-let check = false;
+const operators = ['+', '-', '*', '/'];
 // function add(num1, num2) {
 //     return num1+num2;
 // }
@@ -26,40 +26,42 @@ Array.from(btns).forEach((btn) => {
             string = '';
         }
         else if (event.target.id == 'divide') {
-            if (check) {
-                outputDisplay.innerHTML = "Error";
-                string = '';
-                inputDisplay.innerHTML = string;
-                check = false;
+            if (operators.includes(string.slice(-1))) {
+                string = 'Error';
+                outputDisplay.innerHTML = string;
+                inputDisplay.innerHTML = '';
             }
             else {
                 string += '/';
                 inputDisplay.innerHTML = string;
-                check = true;
             }
         }
         else if (event.target.id == 'multiply') {
-            if (check) {
-                outputDisplay.innerHTML = "Error";
-                string = '';
-                inputDisplay.innerHTML = string;
-                check = false;
+            if (operators.includes(string.slice(-1))) {
+                string = 'Error';
+                outputDisplay.innerHTML = string;
+                inputDisplay.innerHTML = '';
             }
             else {
                 string += '*';
                 inputDisplay.innerHTML = string;
-                check = true;
+            }
+        }
+        else if(event.target.id == 'mod') {
+            if (operators.includes(string.slice(-1))) {
+                string = 'Error';
+                outputDisplay.innerHTML = string;
+                inputDisplay.innerHTML = '';
+            }
+            else {
+                string += '%';
+                inputDisplay.innerHTML = string;
             }
         }
         // else if(event.target.id == 'plusminus') {
         //     string += '-';
         //     inputDisplay.innerHTML = string;  not functioning
         // }
-        else if(event.target.id = 'mod' && check) {
-            outputDisplay.innerHTML = "Error";
-            string = '';
-            inputDisplay.innerHTML = string;
-        }
         else if (event.target.id == 'all_clear') {
             string = '';
             inputDisplay.innerHTML = string;
@@ -70,12 +72,6 @@ Array.from(btns).forEach((btn) => {
             inputDisplay.innerHTML = string;
         }
         else {
-            if(event.target.class == 'operator') {
-                check = true;
-            }
-            else {
-                check = false;
-            }
             string += event.target.innerHTML;
             inputDisplay.innerHTML = string;
         }
