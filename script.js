@@ -5,7 +5,7 @@ const outputDisplay = document.getElementById("output_display");
 let string = '';
 let setDisplay = '';
 let index = 0;
-const operators = ['+', '-', '*', '/'];
+const operators = ['+', '-', '*', '/', '.'];
 // function add(num1, num2) {
 //     return num1+num2;
 // }
@@ -26,8 +26,8 @@ Array.from(btns).forEach((btn) => {
             string = '';
         }
         else if (event.target.id == 'divide') {
-            if (operators.includes(string.slice(-1))) {
-                string = 'Error';
+            if (string === '' || operators.includes(string.slice(-1))) {
+                string = 'Invalid Input';
                 outputDisplay.innerHTML = string;
                 inputDisplay.innerHTML = '';
             }
@@ -37,8 +37,8 @@ Array.from(btns).forEach((btn) => {
             }
         }
         else if (event.target.id == 'multiply') {
-            if (operators.includes(string.slice(-1))) {
-                string = 'Error';
+            if (operators.includes(string.slice(-1)) || string === '') {
+                string = 'Invalid Input';
                 outputDisplay.innerHTML = string;
                 inputDisplay.innerHTML = '';
             }
@@ -48,8 +48,8 @@ Array.from(btns).forEach((btn) => {
             }
         }
         else if(event.target.id == 'mod') {
-            if (operators.includes(string.slice(-1))) {
-                string = 'Error';
+            if (operators.includes(string.slice(-1)) || string === '') {
+                string = 'Invalid Input';
                 outputDisplay.innerHTML = string;
                 inputDisplay.innerHTML = '';
             }
@@ -58,10 +58,20 @@ Array.from(btns).forEach((btn) => {
                 inputDisplay.innerHTML = string;
             }
         }
-        // else if(event.target.id == 'plusminus') {
-        //     string += '-';
-        //     inputDisplay.innerHTML = string;  not functioning
-        // }
+        else if(event.target.id == 'decimal') {
+            if (operators.includes(string.slice(-1)) || string === '') {
+                string = 'Invalid Input';
+                outputDisplay.innerHTML = string;
+                inputDisplay.innerHTML = '';
+            }
+            else {
+                string += '.';
+                inputDisplay.innerHTML = string;
+            }
+        }
+        else if(event.target.id == 'plusminus') {
+            toggleSign();
+        }
         else if (event.target.id == 'all_clear') {
             string = '';
             inputDisplay.innerHTML = string;
@@ -76,4 +86,12 @@ Array.from(btns).forEach((btn) => {
             inputDisplay.innerHTML = string;
         }
     });
-})
+});
+
+function toggleSign() {
+    const char = string.slice(-1);
+    string = string.substring(0, string.length-1);
+    string += '-';
+    string += char;
+    inputDisplay.innerHTML = string;
+}
