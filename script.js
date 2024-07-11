@@ -9,7 +9,7 @@ function handleError(event) {
             if (event.target.innerHTML == '=') {
                 setDisplay = math.evaluate(string);
                 outputDisplay.innerHTML = setDisplay;
-                string = '';
+                string = setDisplay;
             }
             else if (event.target.id == 'divide') {
                 if (string === '' || operators.includes(string.slice(-1))) {
@@ -80,7 +80,6 @@ function toggleSign() {
     string += char;
     inputDisplay.innerHTML = string;
 }
-
 document.addEventListener("keydown", function(event) {
     console.log(event.key);
     if(event.key == "0") document.getElementById("zero").click();
