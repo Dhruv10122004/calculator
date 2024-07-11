@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -16,27 +17,31 @@
         </div>
         
         <div class="all_buttons">
-            <button id="all_clear">AC</button>
-            <button id="clear">C</button>
-            <button class="operator" id="mod">%</button>
-            <button class="operator" id="divide">&#247</button>
-            <button class="digits" id="seven">7</button>
-            <button class="digits" id="eight">8</button>
-            <button class="digits" id="nine">9</button>
-            <button class="operator" id="multiply">x</button>
-            <button class="digits" id="four">4</button>
-            <button class="digits" id="five">5</button>
-            <button class="digits" id="six">6</button>
-            <button class="operator" id="minus">-</button>
-            <button class="digits" id="one">1</button>
-            <button class="digits" id="two">2</button>
-            <button class="digits" id="three">3</button>
-            <button class="operator" id="plus">+</button>
-            <button class="operator" id="plusminus">+/-</button>
-            <button class="digits" id="zero">0</button>
-            <button id="decimal">.</button>
-            <button class="equals" id="equalto">=</button>
+            <button onclick="handleError(event)" id="all_clear">AC</button>
+            <button onclick="handleError(event)" id="clear">C</button>
+            <button onclick="handleError(event)" class="operator" id="mod">%</button>
+            <button onclick="handleError(event)" class="operator" id="divide">&#247</button>
+            <button onclick="handleError(event)" class="digits" id="seven">7</button>
+            <button onclick="handleError(event)" class="digits" id="eight">8</button>
+            <button onclick="handleError(event)" class="digits" id="nine">9</button>
+            <button onclick="handleError(event)" class="operator" id="multiply">x</button>
+            <button onclick="handleError(event)" class="digits" id="four">4</button>
+            <button onclick="handleError(event)" class="digits" id="five">5</button>
+            <button onclick="handleError(event)" class="digits" id="six">6</button>
+            <button onclick="handleError(event)" class="operator" id="minus">-</button>
+            <button onclick="handleError(event)" class="digits" id="one">1</button>
+            <button onclick="handleError(event)" class="digits" id="two">2</button>
+            <button onclick="handleError(event)" class="digits" id="three">3</button>
+            <button onclick="handleError(event)" class="operator" id="plus">+</button>
+            <button onclick="handleError(event)" class="operator" id="plusminus">+/-</button>
+            <button onclick="handleError(event)" class="digits" id="zero">0</button>
+            <button onclick="handleError(event)" id="decimal">.</button>
+            <button onclick="handleError(event)" class="equals" id="equalto">=</button>
         </div>
     </div>
+    <div class="footer">
+        <div><span>Let's connect: </span><a href="https://www.linkedin.com/in/dhruv-khanna10/"><i class="fa-brands fa-linkedin" id="linked"  rel="noopener noreferrer" aria-label="GitHub Profile"></i></a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
 </body>
 </html>
